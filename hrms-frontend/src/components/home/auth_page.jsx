@@ -48,7 +48,7 @@ export default function AuthPage() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Work email</label>
+              <label htmlFor="email">Email</label>
               <input 
                 type="email" 
                 id="email" 
