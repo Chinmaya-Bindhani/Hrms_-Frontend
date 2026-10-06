@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 // import './Styling_files/index.css';
 import '../../Styling_files/USERDashboard.css';
 import '../../Styling_files/index.css';
+import Sidebar from './sidebar';
+
+
 
 const UserDashboard = () => {
   const navigate = useNavigate();
@@ -18,18 +21,16 @@ const UserDashboard = () => {
 <div className="layout">
   
 <aside className="sidebar">
-  <div className="logo">Welcome<span>HR</span></div>
+  <div className="logo">Welcome<span>User</span></div>
   <div className="org">Zenbeta · Hyderabad</div>
 
   <nav className="nav">
     <button className="active">Dashboard</button>
-    <button>Employees</button>
     <button>Attendance</button>
-    <button>Leave requests</button>
+    <button> Apply for Leave</button>
   </nav>
 
   <div className="user-box">
-    <b>{user.name || 'HR Professional'}</b>
     <button className="logout" onClick={handleLogout}>Log out</button>
   </div>
 </aside>

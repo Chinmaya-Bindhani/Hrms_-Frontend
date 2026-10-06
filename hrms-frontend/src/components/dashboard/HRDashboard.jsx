@@ -1,6 +1,9 @@
 import React from 'react';  
 import { useNavigate } from 'react-router-dom';
 import '../../Styling_files/HRDashboard.css';
+import '../../demo_contents/forhr';
+import Sidebar from './sidebar';
+
 
 const HRDashboard = () => {
   const navigate = useNavigate();
@@ -13,10 +16,10 @@ const HRDashboard = () => {
   };
 
   return (
-   <div className="layout">
-  <aside className="sidebar">Zenbeta HRMS for HR</aside>
-  <main className="content">Main content</main>
-</div>
+  <div className="layout">
+    <Sidebar user={user} onLogout={handleLogout} />
+    <main className="content">Main content</main>
+  </div>
   );
 };
 

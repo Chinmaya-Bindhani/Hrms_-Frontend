@@ -1,0 +1,46 @@
+.sidebar {
+  background: #12302f;
+  color: #cfe0de;
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+}
+.logo { font-size: 20px; font-weight: 700; color: white; }
+.logo span { color: #5eead4; }
+.org { font-size: 12px; opacity: 0.7; margin: 4px 0 24px; }
+
+.nav button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 9px 12px;
+  margin-bottom: 4px;
+  background: none;
+  border: 0;
+  border-radius: 6px;
+  color: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.nav button:hover { background: rgba(255, 255, 255, 0.06); }
+.nav button.active { background: rgba(255, 255, 255, 0.12); color: white; }
+
+.user-box {
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 12px;
+}
+.user-box b { display: block; color: white; font-size: 13px; }
+.logout {
+  margin-top: 10px;
+  background: none;
+  border: 0;
+  color: #cfe0de;
+  cursor: pointer;
+  padding: 0;
+}
+
+.layout { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
+.content { background: #f1f4f3; padding: 24px; }
+
