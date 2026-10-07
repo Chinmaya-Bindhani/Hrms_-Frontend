@@ -1,0 +1,7 @@
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+}
+.sidebar { background: #12302f; color: white; padding: 20px; }
+.content { background: #f1f4f3; padding: 24px; }

@@ -1,7 +1,37 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 export default function AuthPage() {
   const [role, setRole] = useState('Employee');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError('');
+    setIsLoading(true);
+
+   
+    setTimeout(() => {
+      if (role === 'HR' && email === 'hr@example.com' && password === 'password123') {
+        localStorage.setItem('token', 'mock-hr-token');
+        localStorage.setItem('user', JSON.stringify({ name: 'HR Manager', role: 'HR' }));
+        navigate('/hr-dashboard');
+      } else if (role === 'Employee' && email === 'user@example.com' && password === 'password123') {
+        localStorage.setItem('token', 'mock-user-token');
+        localStorage.setItem('user', JSON.stringify({ name: 'Employee', role: 'USER' }));
+        navigate('/user-dashboard');
+      } else {
+        setError('Invalid email or password for the selected role');
+      }
+      setIsLoading(false);
+    }, 500); 
+
+  };
+  
   return (
     <div className="login-layout">
       {/* Left Panel */}
@@ -18,7 +48,7 @@ export default function AuthPage() {
         </div>
 
         <div className="login-left-footer">
-          Built around your people. Designed for your workday.
+         Zenbeta Technologies Pvt. Ltd
         </div>
       </div>
 
@@ -27,7 +57,8 @@ export default function AuthPage() {
         <div className="login-form-container">
           <h2 className="form-title">Welcome to PeopleDesk</h2>
           <br/>
-          <form onSubmit={(e) => e.preventDefault()}>
+          <form onSubmit={handleLogin}>
+            {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
             <div className="form-group">
               <div className="role-selector">
                 <button 
@@ -48,11 +79,14 @@ export default function AuthPage() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">Email / Username</label>
               <input 
                 type="email" 
                 id="email" 
-                placeholder="aditi.sharma@sahyadrilabs.example" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="hr@example.com" 
+                required
               />
             </div>
 
@@ -62,7 +96,10 @@ export default function AuthPage() {
                 <input 
                   type="password" 
                   id="password" 
-                  placeholder="••••••••••••" 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="password123" 
+                  required
                 />
                 <button type="button" className="password-toggle">
                   Show
@@ -79,8 +116,8 @@ export default function AuthPage() {
               <a href="#" className="forgot-password">Forgot password?</a>
             </div>
 
-            <button type="submit" className="submit-btn">
-              Sign in as {role}
+            <button type="submit" className="submit-btn" disabled={isLoading}>
+              {isLoading ? 'Signing in...' : `Sign in as ${role}`}
             </button>
           </form>
 
@@ -93,7 +130,7 @@ export default function AuthPage() {
         </div>
         
         <div className="login-right-footer">
-          PeopleDesk · Sahyadri Labs
+          Chinmaya Bindhani
         </div>
       </div>
     </div>
