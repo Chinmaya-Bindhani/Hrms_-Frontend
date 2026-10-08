@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 // import './Styling_files/index.css';
 import '../../Styling_files/USERDashboard.css';
 import '../../Styling_files/index.css';
-import Sidebar from './sidebar';
+import Sidebar from '../common/Sidebar';
 
 
 

@@ -8,11 +8,10 @@ const Sidebar = ({ user, onLogout }) => (
     <nav className="nav">
       <button className="active">Dashboard</button>
       <button>Employees</button>
-      <button>Attendance</button>
       <button>Leave requests</button>
     </nav>
 
-    <div className="user-box">
+    <div className="user-box ">
       <button className="logout" onClick={onLogout}>Log out</button>
     </div>
   </aside>
